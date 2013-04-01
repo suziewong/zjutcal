@@ -18,7 +18,7 @@ function random(dayseed, indexseed) {
 
 var today = new Date();
 var iday = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-var iday = 20130403;
+//var iday = 20130403;
 
 var weeks = ["日","一","二","三","四","五","六"];
 var directions = ["北方","东北方","东方","东南方","南方","西南方","西方","西北方"];
