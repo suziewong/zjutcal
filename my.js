@@ -18,41 +18,52 @@ function random(dayseed, indexseed) {
 
 var today = new Date();
 var iday = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-//var iday = 20130403;
+//iday = 20130403;
 
 var weeks = ["日","一","二","三","四","五","六"];
 var directions = ["北方","东北方","东方","东南方","南方","西南方","西方","西北方"];
 var activities = [
-	{name:"今天去\"%m\"吃饭", good:"对面做过来一个漂亮妹纸",bad:"可能会吃出虫子"},
+	{name:"今天去\"%m\"吃饭", good:"会有桃花运",bad:"可能会吃出虫子"},
 	{name:"在妹子面前吹牛", good:"改善你矮穷挫的形象",bad:"会被识破"},
 	{name:"呆在寝室", good:"一个人认真学习",bad:"寝室空气质量极差"},
-	{name:"背单词", good:"这次六级肯定过",bad:"背完50个忘了40个"},
+	{name:"背单词", good:"这次六级肯定过",bad:"背完50个忘了45个"},
 	{name:"撸管", good:"避免缓冲区溢出",bad:"小撸怡情，大撸伤身，强撸灰飞烟灭"},
 	{name:"打DOTA", good:"天梯5000分不是梦",bad:"你会遇到猪一样的队友"},
-	{name:"浏览成人网站", good:"重拾对生活的信心",bad:"你会心神不宁"},
-	{name:"翘课", good:"老师不会点名",bad:"教务处今天会点名"},
-	{name:"刷人人", good:"看看今天同学的囧事",bad:"刷着刷着成了板砖"},
+	{name:"低头走路", good:"可能会捡到钱",bad:"被自行车撞"},
+	{name:"翘课", good:"老师不会点名",bad:"纪检部今天会点名"},
+	{name:"做作业", good:"做的每个都对",bad:"做一个做错一个"},
+	{name:"上课打瞌睡", good:"老师今天讲的都是废话",bad:"被老师叫起来回答问题"},
+	{name:"乘电梯", good:"上课不会迟到",bad:"电梯里面有人放屁"},
+	{name:"去操场运动", good:"可以吸引异性",bad:"可能会受伤"},
+	{name:"乘公交", good:"有空座位",bad:"人挤人挤死人"},
+	{name:"晒被子", good:"天气一直很晴朗",bad:"被子会掉到一楼"},
 	{name:"上精弘论坛", good:"水水更健康",bad:"会被使用IP卡"},
+	{name:"打扫寝室卫生", good:"寝室卫生检查得优秀",bad:"拖地会不小心摔倒"},
 	{name:"上陌陌", good:"女神会有回复",bad:"女神发来\"呵呵\""},
-	{name:"\"%r\"逛一圈", good:"会遇到妹纸并且搭讪成功",bad:"会踩到狗屎"},
-	{name:"去\"%b\"", good:"遇到漂亮妹纸",bad:"墙壁会有板砖掉下来"},
+	{name:"去\"%r\"走一遭", good:"会遇到妹纸并且搭讪成功",bad:"会踩到狗屎"},
+	{name:"去\"%b\"上课", good:"遇到心动的人",bad:"墙壁会有板砖掉下来"},
 	{name:"去图书馆", good:"一口气把作业做完啦",bad:"到门口发现校园卡没带"}
 ];
 
 var specials = [
-	{date:20130221, type:'good', name:'防核演习', description:'万一哪个疯子丢颗核弹过来...'}
+	{date:20130404, type:'good', name:'扫墓', description:'清明节去祭奠祖宗吧'},
+	{date:20130404, type:'bad', name:'生火', description:'清明扫墓，小心火烛'},
+	{date:20130501, type:'good', name:'打扫寝室卫生', description:'劳动人民最伟大'},
+	{date:20130501, type:'bad', name:'吃了就睡', description:'以好逸恶劳为耻'},
+	{date:20130601, type:'good', name:'卖萌', description:'你还是个孩子O(∩_∩)O'},
+	{date:20130601, type:'bad', name:'欺负小朋友', description:'六一节还欺负啊~'}
 ];
 
-var buildings = ["博易楼","广知楼","建行楼","郁文楼","语林楼","仁和楼","畅远楼","理学楼"];
+var buildings = ["博易楼","广知楼","建行楼","郁文楼","语林楼","仁和楼","畅远楼","理学楼","法学楼"];
 
-var roads = ["广知楼","建行楼","郁文楼","语林楼","畅远楼","建行楼","理学楼","支干路"];
+var roads = ["乌溪江路","支干路","次支干路","后山那条路"];
 
-var messhall = ["养贤府","家和堂","钉子户","后山","垃圾街","科院"];
+var messhall = ["养贤府","家和堂一楼","家和堂二楼","家和堂三楼","钉子户","后山","垃圾街","美食广场","家和堂西点部","学校对面"];
 
-var tools = ["Eclipse写程序", "MSOffice写文档", "记事本写程序", "Windows8", "Linux", "MacOS", "IE", "Android设备", "iOS设备"];
+//var tools = ["Eclipse写程序", "MSOffice写文档", "记事本写程序", "Windows8", "Linux", "MacOS", "IE", "Android设备", "iOS设备"];
 
 
-var drinks = ["水","茶","红茶","绿茶","咖啡","奶茶","可乐","牛奶","豆奶","果汁","果味汽水","苏打水","运动饮料","酸奶","酒"];
+//var drinks = ["水","茶","红茶","绿茶","咖啡","奶茶","可乐","牛奶","豆奶","果汁","果味汽水","苏打水","运动饮料","酸奶","酒"];
 
 function getTodayString() {
 	return "今天是" + today.getFullYear() + "年" + (today.getMonth() + 1) + "月" + today.getDate() + "日 星期" + weeks[today.getDay()];
@@ -62,10 +73,11 @@ function getTodayString() {
 function pickTodaysLuck() {
 	var numGood = random(iday, 98) % 3 + 2;
 	var numBad = random(iday, 88) % 3 + 2;
-	var eventArr = pickRandomActivity(numGood + numBad);
+	var num = numBad+ numGood;
+	var eventArr = pickRandomActivity(num);
 	
 	var specialSize = pickSpecials();
-    var num=numBad+ numGood;
+
     console.log(num);	
 	for (var i = 0; i < num/2; i++) {
 		addToGood(eventArr[2*i]);
@@ -157,7 +169,9 @@ function addToBad(event) {
 
 $(function(){
 	$('.date').html(getTodayString());
-	$('.drink_value').html(pickRandom(drinks,2).join());
-	$('.diaosi_value').html(random(iday, 7) % 50 / 10.0);
+	$('.eatplace_value').html(messhall[random(iday, 12) % messhall.length]);
+	$('.directions_value').html("面朝"+directions[random(iday, 10) % directions.length]);
+	//$('.drink_value').html(pickRandom(drinks,2).join());
+	$('.taohua_value').html(random(iday, 7) % 50 / 10.0);
 	pickTodaysLuck();
 });
